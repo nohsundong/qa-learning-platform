@@ -1,0 +1,247 @@
+/* ==========================================================================
+   layout.css — 상단바, 사이드바, 본문 셸, 반응형
+   ========================================================================== */
+
+/* ------------------------------------------------------------- 상단바 */
+
+.topbar {
+  position: fixed;
+  inset: 0 0 auto 0;
+  z-index: 60;
+  height: var(--topbar-h);
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 0 12px;
+  background: color-mix(in srgb, var(--surface) 88%, transparent);
+  backdrop-filter: saturate(180%) blur(12px);
+  border-bottom: 1px solid var(--border);
+}
+
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-weight: 800;
+  letter-spacing: -.02em;
+  color: var(--text);
+  font-size: 17px;
+}
+.brand:hover { text-decoration: none; }
+.brand-mark { font-size: 19px; }
+
+.topbar-progress {
+  margin-left: auto;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  min-width: 0;
+}
+.mini-bar {
+  width: 110px;
+  height: 6px;
+  border-radius: 99px;
+  background: var(--surface-3);
+  overflow: hidden;
+}
+.mini-bar > span {
+  display: block;
+  height: 100%;
+  background: var(--accent);
+  border-radius: 99px;
+  transition: width .4s ease;
+}
+.mini-bar-label {
+  font-size: 12px;
+  font-variant-numeric: tabular-nums;
+  color: var(--text-dim);
+  min-width: 34px;
+}
+
+.topbar-actions { display: flex; align-items: center; gap: 4px; }
+
+.icon-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 36px; height: 36px;
+  border: 0;
+  border-radius: var(--radius-sm);
+  background: transparent;
+  color: var(--text-dim);
+  cursor: pointer;
+}
+.icon-btn:hover { background: var(--surface-2); color: var(--text); }
+
+.nav-toggle { display: none; }
+
+/* ------------------------------------------------------------- 셸 */
+
+.shell {
+  display: flex;
+  padding-top: var(--topbar-h);
+  min-height: 100%;
+}
+
+/* ----------------------------------------------------------- 사이드바 */
+
+.sidebar {
+  position: fixed;
+  top: var(--topbar-h);
+  bottom: 0;
+  left: 0;
+  width: var(--sidebar-w);
+  border-right: 1px solid var(--border);
+  background: var(--surface);
+  overflow-y: auto;
+  overscroll-behavior: contain;
+  z-index: 50;
+}
+.sidebar-inner { padding: 14px 10px 40px; }
+
+.nav-section { margin-bottom: 18px; }
+.nav-section-title {
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: .07em;
+  text-transform: uppercase;
+  color: var(--text-faint);
+  padding: 0 10px 6px;
+}
+
+.nav-item {
+  display: flex;
+  align-items: center;
+  gap: 9px;
+  padding: 7px 10px;
+  border-radius: var(--radius-sm);
+  color: var(--text-dim);
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 1.35;
+}
+.nav-item:hover { background: var(--surface-2); color: var(--text); text-decoration: none; }
+.nav-item[aria-current="page"] {
+  background: var(--accent-soft);
+  color: var(--accent);
+  font-weight: 700;
+}
+.nav-item svg { width: 17px; height: 17px; flex: none; }
+.nav-item .nav-count {
+  margin-left: auto;
+  font-size: 11px;
+  font-variant-numeric: tabular-nums;
+  color: var(--text-faint);
+  background: var(--surface-2);
+  padding: 1px 6px;
+  border-radius: 99px;
+}
+.nav-item[aria-current="page"] .nav-count { background: var(--surface); }
+
+/* 트랙 그룹 */
+.nav-track { margin-bottom: 2px; }
+.nav-track-head {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  width: 100%;
+  padding: 7px 10px;
+  border: 0;
+  background: transparent;
+  border-radius: var(--radius-sm);
+  cursor: pointer;
+  text-align: left;
+  color: var(--text);
+  font-size: 13.5px;
+  font-weight: 600;
+}
+.nav-track-head:hover { background: var(--surface-2); }
+.nav-track-dot {
+  width: 8px; height: 8px;
+  border-radius: 99px;
+  flex: none;
+  background: var(--dot, var(--accent));
+}
+.nav-track-name { flex: 1; min-width: 0; }
+.nav-track-frac {
+  font-size: 11px;
+  color: var(--text-faint);
+  font-variant-numeric: tabular-nums;
+}
+.nav-track-caret { width: 14px; height: 14px; color: var(--text-faint); transition: transform .18s; }
+.nav-track[data-open="true"] .nav-track-caret { transform: rotate(90deg); }
+
+.nav-lessons { display: none; padding: 2px 0 6px 18px; }
+.nav-track[data-open="true"] .nav-lessons { display: block; }
+
+.nav-lesson {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  padding: 5px 9px;
+  border-radius: var(--radius-sm);
+  font-size: 13px;
+  color: var(--text-dim);
+  line-height: 1.35;
+}
+.nav-lesson:hover { background: var(--surface-2); color: var(--text); text-decoration: none; }
+.nav-lesson[aria-current="page"] { background: var(--accent-soft); color: var(--accent); font-weight: 600; }
+.nav-lesson .tick {
+  width: 14px; height: 14px;
+  flex: none;
+  border-radius: 99px;
+  border: 1.5px solid var(--border);
+}
+.nav-lesson[data-status="done"] .tick { background: var(--ok); border-color: var(--ok); }
+.nav-lesson[data-status="doing"] .tick { border-color: var(--warn); border-style: dashed; }
+
+/* --------------------------------------------------------------- 본문 */
+
+.main {
+  flex: 1;
+  min-width: 0;
+  margin-left: var(--sidebar-w);
+  padding: 26px 28px 80px;
+}
+.main:focus { outline: none; }
+
+.view { max-width: var(--maxw); margin: 0 auto; }
+.view.wide { max-width: 1180px; }
+
+.page-head { margin-bottom: 22px; }
+.page-head h1 { font-size: 26px; margin-bottom: 6px; }
+.page-head .sub { color: var(--text-dim); font-size: 14px; margin: 0; }
+
+.scrim {
+  position: fixed;
+  inset: var(--topbar-h) 0 0 0;
+  background: rgba(0,0,0,.42);
+  z-index: 45;
+}
+
+/* ------------------------------------------------------------ 반응형 */
+
+@media (max-width: 960px) {
+  :root { --sidebar-w: 260px; }
+
+  .nav-toggle { display: inline-flex; }
+
+  .sidebar {
+    transform: translateX(-100%);
+    transition: transform .22s ease;
+    box-shadow: var(--shadow-3);
+  }
+  body[data-nav="open"] .sidebar { transform: translateX(0); }
+
+  .main { margin-left: 0; padding: 20px 16px 72px; }
+}
+
+@media (max-width: 620px) {
+  .topbar-progress { display: none; }
+  .brand-text { font-size: 16px; }
+  .main { padding: 16px 13px 64px; }
+  .page-head h1 { font-size: 22px; }
+}
+
+/* 사이드바가 열렸을 때 배경 스크롤 잠금 */
+body[data-nav="open"] { overflow: hidden; }

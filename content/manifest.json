@@ -1,0 +1,191 @@
+{
+  "generatedAt": "2026-08-15T00:43:07.124Z",
+  "tracks": [
+    {
+      "id": "track-1-fundamentals",
+      "title": "트랙 1. QA 기본기",
+      "shortTitle": "1. QA 기본기",
+      "summary": "채용공고 공통 요구사항. 테스트 계획·전략, TC 설계 기법, 결함 리포트, 릴리즈 판단, 품질 지표까지 QA의 뼈대를 세운다.",
+      "outcomes": [
+        "요구사항을 받아 테스트 전략 문서와 테스트 계획을 스스로 작성할 수 있다",
+        "동등분할·경계값·상태전이·페어와이즈·결정테이블을 상황에 맞게 골라 쓸 수 있다",
+        "개발자가 되묻지 않는 결함 리포트를 쓸 수 있다",
+        "품질 지표를 근거로 배포 Go/No-Go 의견을 낼 수 있다"
+      ],
+      "lessons": [
+        {
+          "id": "t1-l01",
+          "title": "테스트 계획과 테스트 전략 문서",
+          "summary": "전략과 계획의 차이를 구분하고, 리스크 기반으로 테스트 범위를 정하는 문서를 직접 작성한다.",
+          "minutes": 20,
+          "tags": [
+            "테스트계획",
+            "테스트전략",
+            "리스크기반테스팅"
+          ],
+          "order": 1,
+          "path": "track-1-fundamentals/01-test-planning.md"
+        },
+        {
+          "id": "t1-l02",
+          "title": "TC 설계 기법 (1) 동등분할과 경계값 분석",
+          "summary": "무한한 입력을 유한한 테스트로 줄이는 두 기본 기법. 경계에서 결함이 나오는 이유를 코드 수준에서 이해한다.",
+          "minutes": 18,
+          "tags": [
+            "테스트설계",
+            "동등분할",
+            "경계값분석",
+            "TC"
+          ],
+          "order": 2,
+          "path": "track-1-fundamentals/02-tc-design-partitioning.md"
+        },
+        {
+          "id": "t1-l03",
+          "title": "TC 설계 기법 (2) 상태전이와 결정테이블",
+          "summary": "입력 하나만 보면 놓치는 결함을 잡는 두 기법. 순서가 중요한 기능과 조건이 얽힌 기능을 각각 표로 정리한다.",
+          "minutes": 20,
+          "tags": [
+            "테스트설계",
+            "상태전이",
+            "결정테이블",
+            "TC"
+          ],
+          "order": 3,
+          "path": "track-1-fundamentals/03-tc-design-state-decision.md"
+        },
+        {
+          "id": "t1-l04",
+          "title": "TC 설계 기법 (3) 페어와이즈와 조합 폭발 다루기",
+          "summary": "조합이 수천 개로 폭발할 때 무엇을 버릴지 근거 있게 정하는 법. PICT로 실제 케이스를 줄여본다.",
+          "minutes": 18,
+          "tags": [
+            "테스트설계",
+            "페어와이즈",
+            "조합테스트",
+            "PICT"
+          ],
+          "order": 4,
+          "path": "track-1-fundamentals/04-tc-design-pairwise.md"
+        },
+        {
+          "id": "t1-l05",
+          "title": "테스트 유형 — 기능·회귀·통합·탐색적",
+          "summary": "네 가지 테스트를 언제 어느 깊이로 돌릴지 판단한다. 특히 회귀 범위 산정과 탐색적 테스트의 기록법을 익힌다.",
+          "minutes": 20,
+          "tags": [
+            "기능테스트",
+            "회귀테스트",
+            "통합테스트",
+            "탐색적테스트"
+          ],
+          "order": 5,
+          "path": "track-1-fundamentals/05-test-types.md"
+        },
+        {
+          "id": "t1-l06",
+          "title": "결함 리포트 작성법",
+          "summary": "개발자가 되묻지 않는 리포트를 쓴다. 재현 경로, 실제/기대 결과 분리, 심각도와 우선순위 구분까지.",
+          "minutes": 18,
+          "tags": [
+            "결함리포트",
+            "버그리포트",
+            "심각도",
+            "우선순위"
+          ],
+          "order": 6,
+          "path": "track-1-fundamentals/06-defect-report.md"
+        },
+        {
+          "id": "t1-l07",
+          "title": "릴리즈 품질 검증과 Go/No-Go 판단",
+          "summary": "배포 전후에 무엇을 확인하고, 어떤 근거로 나가도 된다고 말할 것인가. 롤백 기준까지 미리 정한다.",
+          "minutes": 20,
+          "tags": [
+            "릴리즈",
+            "GoNoGo",
+            "리스크판단",
+            "롤백",
+            "모니터링"
+          ],
+          "order": 7,
+          "path": "track-1-fundamentals/07-release-go-nogo.md"
+        },
+        {
+          "id": "t1-l08",
+          "title": "품질 지표 — 커버리지, 결함 밀도, 실패율, 결함 탈출률",
+          "summary": "숫자로 품질을 말하는 법. 그리고 지표가 목표가 되는 순간 어떻게 망가지는지까지 함께 배운다.",
+          "minutes": 20,
+          "tags": [
+            "품질지표",
+            "커버리지",
+            "결함밀도",
+            "결함탈출률",
+            "DDP"
+          ],
+          "order": 8,
+          "path": "track-1-fundamentals/08-quality-metrics.md"
+        }
+      ]
+    },
+    {
+      "id": "track-2-tools",
+      "title": "트랙 2. 도구 실무",
+      "shortTitle": "2. 도구 실무",
+      "summary": "Jira·Confluence 협업, Postman·Swagger API 테스트, SQL 데이터 정합성 검증, Datadog·Grafana 로그 분석.",
+      "outcomes": [
+        "API 명세만 보고 Postman 컬렉션을 구성하고 응답을 검증할 수 있다",
+        "SQL 로 데이터 정합성을 직접 확인할 수 있다",
+        "로그와 대시보드를 읽고 장애 원인의 범위를 좁힐 수 있다"
+      ],
+      "lessons": []
+    },
+    {
+      "id": "track-3-automation",
+      "title": "트랙 3. 테스트 자동화",
+      "shortTitle": "3. 테스트 자동화",
+      "summary": "Playwright 를 중심으로 웹·모바일 자동화, 페이지 오브젝트, 플래키 테스트 격리, CI/CD 연동, 그리고 무엇을 자동화하지 않을지 판단하는 기준.",
+      "outcomes": [
+        "Playwright 로 안정적인 E2E 테스트를 작성하고 CI 에서 돌릴 수 있다",
+        "플래키 테스트의 원인을 분류하고 격리할 수 있다",
+        "자동화 대상과 수동 유지 대상을 비용 기준으로 나눌 수 있다"
+      ],
+      "lessons": []
+    },
+    {
+      "id": "track-4-ai-qa",
+      "title": "트랙 4. AI 활용 QA",
+      "shortTitle": "4. AI 활용 QA",
+      "summary": "2026년 신규 표준 요구사항. AI 기반 TC 생성, Agentic Testing 4단계, 셀프힐링, 자연어 기반 테스트 파이프라인.",
+      "outcomes": [
+        "요구사항·PR diff 를 입력으로 테스트를 생성·우선순위화하는 흐름을 설계할 수 있다",
+        "에이전트가 탐색·실패분석·자가복구까지 수행하는 구조를 이해하고 실습할 수 있다",
+        "셀렉터가 깨졌을 때 자동 보정되는 셀프힐링 로직을 구현할 수 있다"
+      ],
+      "lessons": []
+    },
+    {
+      "id": "track-5-performance",
+      "title": "트랙 5. 성능·부하 테스트",
+      "shortTitle": "5. 성능 테스트",
+      "summary": "k6 로 부하·스트레스·스파이크·내구성 테스트를 구분해 설계하고, p95/p99·에러율·처리량으로 결과를 해석한다.",
+      "outcomes": [
+        "k6 시나리오를 작성하고 임계치(threshold)를 설정할 수 있다",
+        "평균이 아닌 p95/p99 로 성능을 판단할 수 있다"
+      ],
+      "lessons": []
+    },
+    {
+      "id": "track-6-dev-crosscheck",
+      "title": "트랙 6. 교차검증을 위한 개발 지식",
+      "shortTitle": "6. 개발 교차검증",
+      "summary": "AI가 만든 코드와 분석이 맞는지 내가 직접 검증하기 위한 개발 지식. 암기가 아니라 '읽고 판단하기' 관점으로 배운다.",
+      "outcomes": [
+        "HTTP·인증·비동기 처리를 이해하고 API 동작을 스스로 검증할 수 있다",
+        "JS/Python 코드와 PR diff 를 읽고 무엇을 테스트해야 하는지 판단할 수 있다",
+        "AI 산출물의 환각과 가짜 통과를 체크리스트로 걸러낼 수 있다"
+      ],
+      "lessons": []
+    }
+  ]
+}

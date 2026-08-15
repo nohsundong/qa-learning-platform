@@ -1,0 +1,20 @@
+# 로컬 환경 / 비밀값 — 절대 커밋 금지
+.env
+.env.*
+*.local.json
+secrets.json
+
+# 로컬 개발 편의 설정 (절대경로가 들어가므로 기기마다 다름)
+.claude/
+
+# OS / 에디터
+.DS_Store
+Thumbs.db
+.idea/
+.vscode/
+
+# 백업 파일 (내보낸 진도 데이터에는 개인 메모가 들어간다)
+qa-lab-backup-*.json
+
+# Node (도구 스크립트는 의존성이 없지만 혹시 모를 실수 방지)
+node_modules/

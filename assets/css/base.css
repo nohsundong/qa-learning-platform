@@ -1,0 +1,243 @@
+/* ==========================================================================
+   base.css — 디자인 토큰, 리셋, 타이포그래피, 테마(라이트/다크/시스템)
+   ========================================================================== */
+
+:root {
+  /* 색 — 라이트 기본값. 모든 색은 여기서만 정의하고 아래에서 재정의한다. */
+  --bg:          #f5f6f8;
+  --surface:     #ffffff;
+  --surface-2:   #eef0f4;
+  --surface-3:   #e3e7ed;
+  --border:      #d8dde5;
+  --border-soft: #e8ecf1;
+
+  --text:        #14181d;
+  --text-dim:    #59626d;
+  --text-faint:  #8b939d;
+
+  --accent:      #2456c7;
+  --accent-hover:#1c46a6;
+  --accent-soft: #e6edfb;
+  --accent-fg:   #ffffff;
+
+  --ok:          #14713c;
+  --ok-soft:     #e2f4e9;
+  --warn:        #8a5300;
+  --warn-soft:   #fdf0da;
+  --danger:      #a92d20;
+  --danger-soft: #fbe7e5;
+  --info:        #0f6a80;
+  --info-soft:   #e0f2f6;
+
+  /* 트랙 색상 */
+  --track-1: #2456c7;
+  --track-2: #0f6a80;
+  --track-3: #6b3fa0;
+  --track-4: #b3452c;
+  --track-5: #8a5300;
+  --track-6: #14713c;
+
+  /* 치수 */
+  --sidebar-w: 268px;
+  --topbar-h: 56px;
+  --radius: 10px;
+  --radius-sm: 6px;
+  --radius-lg: 16px;
+  --maxw: 860px;
+
+  --shadow-1: 0 1px 2px rgba(16,24,40,.06), 0 1px 3px rgba(16,24,40,.08);
+  --shadow-2: 0 4px 12px rgba(16,24,40,.10), 0 2px 4px rgba(16,24,40,.06);
+  --shadow-3: 0 12px 32px rgba(16,24,40,.16);
+
+  --font-sans: -apple-system, BlinkMacSystemFont, "Pretendard", "Apple SD Gothic Neo",
+               "Malgun Gothic", "Noto Sans KR", Segoe UI, Roboto, sans-serif;
+  --font-mono: ui-monospace, SFMono-Regular, "SF Mono", Menlo, Consolas,
+               "D2Coding", "Noto Sans Mono CJK KR", monospace;
+}
+
+/* 다크 — 명시적 선택 */
+html[data-theme="dark"] {
+  --bg:          #0f1216;
+  --surface:     #171b21;
+  --surface-2:   #1e242c;
+  --surface-3:   #262e38;
+  --border:      #303945;
+  --border-soft: #232a33;
+
+  --text:        #e7ebf0;
+  --text-dim:    #a3adb9;
+  --text-faint:  #6f7a87;
+
+  --accent:      #6f9bff;
+  --accent-hover:#8db0ff;
+  --accent-soft: #1a2740;
+  --accent-fg:   #0b0e12;
+
+  --ok:          #57d38c;
+  --ok-soft:     #12291d;
+  --warn:        #e5b45c;
+  --warn-soft:   #2b2213;
+  --danger:      #ff8a7d;
+  --danger-soft: #2e1917;
+  --info:        #5ec8de;
+  --info-soft:   #12262b;
+
+  --track-1: #6f9bff;
+  --track-2: #5ec8de;
+  --track-3: #b58bff;
+  --track-4: #ff9478;
+  --track-5: #e5b45c;
+  --track-6: #57d38c;
+
+  --shadow-1: 0 1px 2px rgba(0,0,0,.4);
+  --shadow-2: 0 4px 12px rgba(0,0,0,.45);
+  --shadow-3: 0 12px 32px rgba(0,0,0,.55);
+}
+
+/* 다크 — 시스템 설정 따름 (data-theme="light" 로 명시하지 않은 경우) */
+@media (prefers-color-scheme: dark) {
+  html[data-theme="auto"] {
+    --bg:          #0f1216;
+    --surface:     #171b21;
+    --surface-2:   #1e242c;
+    --surface-3:   #262e38;
+    --border:      #303945;
+    --border-soft: #232a33;
+
+    --text:        #e7ebf0;
+    --text-dim:    #a3adb9;
+    --text-faint:  #6f7a87;
+
+    --accent:      #6f9bff;
+    --accent-hover:#8db0ff;
+    --accent-soft: #1a2740;
+    --accent-fg:   #0b0e12;
+
+    --ok:          #57d38c;
+    --ok-soft:     #12291d;
+    --warn:        #e5b45c;
+    --warn-soft:   #2b2213;
+    --danger:      #ff8a7d;
+    --danger-soft: #2e1917;
+    --info:        #5ec8de;
+    --info-soft:   #12262b;
+
+    --track-1: #6f9bff;
+    --track-2: #5ec8de;
+    --track-3: #b58bff;
+    --track-4: #ff9478;
+    --track-5: #e5b45c;
+    --track-6: #57d38c;
+
+    --shadow-1: 0 1px 2px rgba(0,0,0,.4);
+    --shadow-2: 0 4px 12px rgba(0,0,0,.45);
+    --shadow-3: 0 12px 32px rgba(0,0,0,.55);
+  }
+}
+
+/* --------------------------------------------------------------- 리셋 */
+
+*, *::before, *::after { box-sizing: border-box; }
+
+html, body { height: 100%; }
+
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--text);
+  font-family: var(--font-sans);
+  font-size: 15px;
+  line-height: 1.65;
+  -webkit-font-smoothing: antialiased;
+  -webkit-text-size-adjust: 100%;
+  overflow-wrap: break-word;
+}
+
+h1, h2, h3, h4, h5 { margin: 0; font-weight: 700; line-height: 1.3; letter-spacing: -.01em; }
+p { margin: 0 0 .9em; }
+ul, ol { margin: 0 0 .9em; padding-left: 1.3em; }
+li { margin: .25em 0; }
+
+a { color: var(--accent); text-decoration: none; }
+a:hover { text-decoration: underline; }
+
+img, svg { max-width: 100%; }
+
+button, input, select, textarea {
+  font: inherit;
+  color: inherit;
+}
+
+code, kbd, pre, samp { font-family: var(--font-mono); font-size: .88em; }
+
+hr {
+  border: 0;
+  border-top: 1px solid var(--border);
+  margin: 1.6em 0;
+}
+
+/* --------------------------------------------------- 접근성 / 포커스 */
+
+:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 2px;
+  border-radius: 4px;
+}
+:focus:not(:focus-visible) { outline: none; }
+
+.skip-link {
+  position: absolute;
+  left: 8px;
+  top: -60px;
+  z-index: 200;
+  padding: 10px 16px;
+  background: var(--accent);
+  color: var(--accent-fg);
+  border-radius: var(--radius-sm);
+  transition: top .15s;
+}
+.skip-link:focus { top: 8px; }
+
+.visually-hidden {
+  position: absolute !important;
+  width: 1px; height: 1px;
+  padding: 0; margin: -1px;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  white-space: nowrap;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: .01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: .01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* 아이콘 SVG 공통 (stroke 기반) */
+svg[viewBox] {
+  width: 20px; height: 20px;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 1.8;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+/* 스크롤바 (webkit) */
+::-webkit-scrollbar { width: 10px; height: 10px; }
+::-webkit-scrollbar-thumb {
+  background: var(--surface-3);
+  border-radius: 8px;
+  border: 2px solid var(--bg);
+}
+::-webkit-scrollbar-thumb:hover { background: var(--text-faint); }
+::-webkit-scrollbar-track { background: transparent; }
+
+/* 인쇄 */
+@media print {
+  .topbar, .sidebar, .toast-host, .lesson-actions { display: none !important; }
+  .main { padding: 0 !important; }
+}

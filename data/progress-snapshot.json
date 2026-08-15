@@ -1,0 +1,10 @@
+{
+  "generatedAt": null,
+  "totalLessons": 0,
+  "completedCount": 0,
+  "percent": 0,
+  "streak": { "current": 0, "longest": 0, "lastStudyDate": null },
+  "nextLesson": null,
+  "completedLessonIds": [],
+  "weakItems": []
+}
