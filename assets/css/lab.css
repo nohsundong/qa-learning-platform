@@ -1,0 +1,175 @@
+/* ==========================================================================
+   lab.css — 실습 랩 전용 스타일
+   ========================================================================== */
+
+.lab-head { margin-bottom: 18px; }
+.lab-head .lesson-crumbs { margin-bottom: 7px; }
+.lab-head h1 { font-size: 24px; margin-bottom: 6px; }
+.lab-head .sub { color: var(--text-dim); font-size: 14px; margin: 0; }
+
+.lab-layout { display: grid; grid-template-columns: minmax(0, 1fr) 300px; gap: 18px; align-items: start; }
+@media (max-width: 1100px) { .lab-layout { grid-template-columns: minmax(0, 1fr); } }
+
+.lab-side { position: sticky; top: calc(var(--topbar-h) + 20px); }
+
+/* ------------------------------------------------- 샘플 앱 (buggy-app) */
+
+.app-frame {
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  background: var(--surface);
+  overflow: hidden;
+}
+.app-topbar {
+  display: flex; align-items: center; gap: 10px;
+  padding: 10px 14px;
+  background: var(--surface-2);
+  border-bottom: 1px solid var(--border);
+  font-size: 13px;
+}
+.app-topbar .brand { font-weight: 800; font-size: 14px; }
+.app-topbar .spacer { flex: 1; }
+.app-body { padding: 16px 18px; }
+
+.cart-badge {
+  display: inline-flex; align-items: center; justify-content: center;
+  min-width: 20px; height: 20px; padding: 0 6px;
+  border-radius: 99px; background: var(--accent); color: var(--accent-fg);
+  font-size: 11px; font-weight: 700;
+}
+
+.field-row { display: flex; flex-direction: column; gap: 5px; margin-bottom: 12px; }
+.field-row label { font-size: 13px; font-weight: 600; }
+.field-row input, .field-row select {
+  padding: 8px 11px; border: 1px solid var(--border);
+  border-radius: var(--radius-sm); background: var(--surface); color: var(--text);
+  font-size: 14px;
+}
+
+.msg { padding: 9px 12px; border-radius: var(--radius-sm); font-size: 13.5px; margin-bottom: 12px; }
+.msg.ok   { background: var(--ok-soft);     color: var(--ok); }
+.msg.err  { background: var(--danger-soft); color: var(--danger); }
+.msg.warn { background: var(--warn-soft);   color: var(--warn); }
+.msg.info { background: var(--info-soft);   color: var(--info); }
+
+.prod-row, .cart-row {
+  display: flex; align-items: center; gap: 10px;
+  padding: 10px 0; border-bottom: 1px solid var(--border-soft);
+  font-size: 14px;
+}
+.prod-row:last-child, .cart-row:last-child { border-bottom: 0; }
+.prod-row .name, .cart-row .name { flex: 1; min-width: 0; }
+.prod-row .price, .cart-row .sub { font-variant-numeric: tabular-nums; }
+.cart-row input[type="number"] {
+  width: 68px; padding: 5px 8px; border: 1px solid var(--border);
+  border-radius: var(--radius-sm); background: var(--surface); color: var(--text);
+}
+
+.total-box { margin-top: 14px; padding-top: 12px; border-top: 2px solid var(--border); }
+.total-line {
+  display: flex; justify-content: space-between;
+  font-size: 14px; padding: 4px 0;
+  font-variant-numeric: tabular-nums;
+}
+.total-line.grand { font-size: 17px; font-weight: 800; padding-top: 9px; }
+
+/* ---------------------------------------------------- 셀렉터 연습기 */
+
+.sel-stage {
+  border: 1px solid var(--border); border-radius: var(--radius);
+  background: var(--surface); padding: 16px; min-height: 220px;
+}
+.sel-stage * { cursor: crosshair; }
+.sel-stage [data-pickable]:hover {
+  outline: 2px dashed var(--accent); outline-offset: 2px;
+}
+.sel-stage [data-picked="true"] {
+  outline: 2px solid var(--accent); outline-offset: 2px;
+  background: var(--accent-soft);
+}
+
+.sel-table { width: 100%; border-collapse: collapse; font-size: 13px; }
+.sel-table th, .sel-table td {
+  border: 1px solid var(--border); padding: 7px 9px; text-align: left; vertical-align: top;
+}
+.sel-table th { background: var(--surface-2); font-weight: 700; white-space: nowrap; }
+.sel-table code { font-size: 12px; white-space: pre-wrap; word-break: break-all; }
+
+.grade { display: inline-block; padding: 1px 7px; border-radius: 99px; font-size: 11px; font-weight: 700; white-space: nowrap; }
+.grade.best { background: var(--ok-soft);     color: var(--ok); }
+.grade.good { background: var(--info-soft);   color: var(--info); }
+.grade.mid  { background: var(--warn-soft);   color: var(--warn); }
+.grade.bad  { background: var(--danger-soft); color: var(--danger); }
+
+/* --------------------------------------------------- 스크립트 리뷰어 */
+
+.review-editor {
+  width: 100%; min-height: 300px;
+  font-family: var(--font-mono); font-size: 12.5px; line-height: 1.6;
+  padding: 12px; border: 1px solid var(--border); border-radius: var(--radius-sm);
+  background: var(--surface); color: var(--text); resize: vertical;
+  tab-size: 2;
+}
+
+.finding {
+  border: 1px solid var(--border);
+  border-left: 3px solid var(--fc, var(--warn));
+  border-radius: var(--radius-sm);
+  padding: 10px 13px; margin-bottom: 9px; font-size: 13.5px;
+  background: var(--surface);
+}
+.finding.sev-high { --fc: var(--danger); }
+.finding.sev-mid  { --fc: var(--warn); }
+.finding.sev-low  { --fc: var(--info); }
+.finding .head { display: flex; align-items: center; gap: 8px; margin-bottom: 5px; flex-wrap: wrap; }
+.finding .line {
+  font-family: var(--font-mono); font-size: 11.5px;
+  background: var(--surface-2); padding: 1px 6px; border-radius: 4px; color: var(--text-dim);
+}
+.finding .why { color: var(--text-dim); margin: 4px 0 0; font-size: 13px; }
+.finding .fix {
+  margin-top: 7px; padding: 7px 10px; background: var(--surface-2);
+  border-radius: var(--radius-sm); font-family: var(--font-mono); font-size: 12px;
+  white-space: pre-wrap; overflow-x: auto;
+}
+.finding .snippet {
+  margin-top: 5px; font-family: var(--font-mono); font-size: 12px;
+  color: var(--text-dim); white-space: pre-wrap; word-break: break-all;
+}
+
+.score-box { text-align: center; padding: 16px; }
+.score-num { font-size: 38px; font-weight: 800; line-height: 1; font-variant-numeric: tabular-nums; }
+
+/* ------------------------------------------------- 셀프힐링 시뮬레이터 */
+
+.dom-pane {
+  border: 1px solid var(--border); border-radius: var(--radius-sm);
+  background: var(--surface-2); padding: 11px 13px;
+  font-family: var(--font-mono); font-size: 12px; line-height: 1.7;
+  white-space: pre-wrap; overflow-x: auto;
+}
+.dom-pane .hl { background: color-mix(in srgb, var(--warn) 28%, transparent); border-radius: 3px; }
+
+.strategy {
+  display: flex; align-items: flex-start; gap: 10px;
+  border: 1px solid var(--border); border-radius: var(--radius-sm);
+  padding: 10px 12px; margin-bottom: 8px; background: var(--surface);
+  cursor: pointer; font-size: 13.5px;
+}
+.strategy:hover { border-color: var(--accent); }
+.strategy input { margin-top: 3px; flex: none; }
+.strategy .body { flex: 1; min-width: 0; }
+.strategy .body code { font-size: 12px; }
+.strategy[data-result="ok"]     { border-color: var(--ok);     background: var(--ok-soft); }
+.strategy[data-result="danger"] { border-color: var(--danger); background: var(--danger-soft); }
+.strategy[data-result="fail"]   { border-color: var(--warn);   background: var(--warn-soft); }
+.strategy .verdict { display: block; margin-top: 6px; font-size: 12.5px; font-weight: 600; }
+
+.sim-nav { display: flex; gap: 8px; align-items: center; margin-bottom: 14px; flex-wrap: wrap; }
+.sim-dot {
+  width: 26px; height: 26px; border-radius: 99px;
+  border: 1px solid var(--border); background: var(--surface);
+  font-size: 12px; font-weight: 700; cursor: pointer; color: var(--text-dim);
+}
+.sim-dot[aria-current="true"] { background: var(--accent); border-color: var(--accent); color: var(--accent-fg); }
+.sim-dot[data-done="true"] { border-color: var(--ok); color: var(--ok); }
