@@ -1,0 +1,130 @@
+name: 아침 학습 브리핑
+
+# ---------------------------------------------------------------------------
+# 평일 아침 한국시간 08:00 에 학습 브리핑 메일을 보낸다.
+#
+# ⚠ GitHub Actions 의 cron 은 UTC 기준이다.
+#    KST = UTC + 9 이므로 KST 08:00 은 UTC 전날 23:00 이다.
+#    날짜가 하루 넘어가므로 요일 지정도 하루 당겨야 한다.
+#
+#      KST 월~금 08:00  →  UTC 일~목 23:00  →  '0 23 * * 0-4'   ✅
+#      '0 23 * * 1-5' 로 쓰면 UTC 월~금 23시 = KST 화~토 08시 가 되어
+#      토요일에 오고 월요일에는 오지 않는다.                      ❌
+#
+#    다른 시각으로 바꾸려면 (KST 시각 - 9) 를 계산하고,
+#    결과가 0시 미만이면 24를 더한 뒤 요일을 하루 당긴다.
+#      KST 07:00 → UTC 22:00 → '0 22 * * 0-4'
+#      KST 09:00 → UTC 00:00 → '0 0  * * 1-5'   (같은 날이라 요일 그대로)
+#      KST 18:00 → UTC 09:00 → '0 9  * * 1-5'
+#
+#    schedule 은 정시 실행을 보장하지 않는다. 부하에 따라 수 분~수십 분
+#    지연될 수 있다. (GitHub 공식 문서에 명시된 동작)
+# ---------------------------------------------------------------------------
+
+on:
+  schedule:
+    - cron: '0 23 * * 0-4'
+  workflow_dispatch:          # 수동 실행 버튼 (설정 확인용)
+
+permissions:
+  contents: read              # 최소 권한
+
+jobs:
+  send:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      # manifest.json 이 최신인지 보장한다 (레슨을 추가하고 빌드를 잊었을 경우 대비)
+      - name: 콘텐츠 빌드
+        run: node tools/build-content.mjs
+
+      - name: 브리핑 본문 생성
+        id: render
+        env:
+          TZ: Asia/Seoul
+          SITE_URL: ${{ vars.SITE_URL }}
+        run: node tools/render-briefing.mjs
+
+      - name: 메일 발송
+        uses: dawidd6/action-send-mail@v3
+        with:
+          server_address: smtp.gmail.com
+          server_port: 465
+          secure: true
+          username: ${{ secrets.MAIL_USERNAME }}
+          password: ${{ secrets.MAIL_APP_PASSWORD }}
+          from: QA-Lab <${{ secrets.MAIL_USERNAME }}>
+          to: ${{ secrets.MAIL_TO }}
+          subject: ${{ steps.render.outputs.subject }}
+          html_body: file://out/briefing.html
+          body: file://out/briefing.txt        # 텍스트 대체본
+          convert_markdown: false
+
+      # 발송이 실패해도 본문은 확인할 수 있게 남긴다
+      - name: 생성물 업로드
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: briefing-${{ github.run_number }}
+          path: out/
+          retention-days: 7
+
+# ---------------------------------------------------------------------------
+# 필요한 GitHub 설정
+#
+#   Settings → Secrets and variables → Actions
+#
+#   [Secrets]
+#     MAIL_USERNAME      보내는 Gmail 주소 (예: nohsundongtbell@gmail.com)
+#     MAIL_APP_PASSWORD  Gmail 앱 비밀번호 16자리 (계정 비밀번호가 아니다)
+#     MAIL_TO            받는 주소 (본인 주소를 그대로 넣으면 된다)
+#
+#   [Variables]
+#     SITE_URL           https://<사용자명>.github.io/qa-learning-platform
+#                        (없어도 동작한다. 메일 안의 링크만 빠진다)
+#
+#   발급 방법은 README 의 "아침 브리핑 메일 설정" 절에 단계별로 있다.
+# ---------------------------------------------------------------------------
+#
+# 대안 1) Resend 무료 티어 (하루 100통, 월 3,000통)
+#   Gmail SMTP 대신 HTTP API 를 쓴다. 앱 비밀번호가 필요 없고
+#   발송 로그를 대시보드에서 볼 수 있다. 도메인 인증 없이 쓰려면
+#   onboarding@resend.dev 발신 주소를 사용한다.
+#
+#     - name: 메일 발송 (Resend)
+#       env:
+#         RESEND_API_KEY: ${{ secrets.RESEND_API_KEY }}
+#       run: |
+#         node -e '
+#           const fs = require("fs");
+#           fetch("https://api.resend.com/emails", {
+#             method: "POST",
+#             headers: {
+#               "Authorization": `Bearer ${process.env.RESEND_API_KEY}`,
+#               "Content-Type": "application/json"
+#             },
+#             body: JSON.stringify({
+#               from: "QA-Lab <onboarding@resend.dev>",
+#               to: [process.env.MAIL_TO],
+#               subject: fs.readFileSync("out/subject.txt", "utf8"),
+#               html: fs.readFileSync("out/briefing.html", "utf8"),
+#               text: fs.readFileSync("out/briefing.txt", "utf8")
+#             })
+#           }).then(r => r.text()).then(t => { console.log(t); })
+#         '
+#
+# 대안 2) 메일 대신 Slack / Discord 웹훅
+#   웹훅 URL 하나만 Secrets 에 넣으면 되고 앱 비밀번호가 필요 없다.
+#   out/briefing.txt 를 그대로 본문으로 보내면 된다.
+#
+# 대안 3) GitHub Issue 로 받기
+#   메일 설정 없이 바로 쓸 수 있다. permissions 에 issues: write 를 추가하고
+#   actions/github-script 로 매일 이슈를 생성한다. 알림은 GitHub 앱이 보내준다.
+# ---------------------------------------------------------------------------

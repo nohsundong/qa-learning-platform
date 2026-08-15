@@ -18,3 +18,6 @@ qa-lab-backup-*.json
 
 # Node (도구 스크립트는 의존성이 없지만 혹시 모를 실수 방지)
 node_modules/
+
+# 브리핑 생성물 (CI 에서 만들어진다)
+out/
