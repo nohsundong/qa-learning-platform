@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-08-15T04:52:45.655Z",
+  "generatedAt": "2026-08-15T05:08:44.919Z",
   "tracks": [
     {
       "id": "track-1-fundamentals",
@@ -564,7 +564,70 @@
         "k6 시나리오를 작성하고 임계치(threshold)를 설정할 수 있다",
         "평균이 아닌 p95/p99 로 성능을 판단할 수 있다"
       ],
-      "lessons": []
+      "lessons": [
+        {
+          "id": "t5-l01",
+          "title": "성능 테스트 기초와 k6 첫 스크립트",
+          "summary": "VU·이터레이션·RPS의 관계부터 잡는다. 이걸 헷갈리면 부하를 잘못 걸고 결과를 잘못 읽는다.",
+          "minutes": 20,
+          "tags": [
+            "k6",
+            "성능테스트",
+            "VU",
+            "RPS",
+            "부하"
+          ],
+          "order": 1,
+          "path": "track-5-performance/01-k6-basics.md"
+        },
+        {
+          "id": "t5-l02",
+          "title": "부하 유형 구분과 시나리오 설계",
+          "summary": "부하·스트레스·스파이크·내구성은 목적이 다르다. 무엇을 알고 싶은지 정하고 그에 맞는 워크로드를 설계한다.",
+          "minutes": 20,
+          "tags": [
+            "k6",
+            "부하테스트",
+            "스트레스",
+            "스파이크",
+            "내구성",
+            "executor"
+          ],
+          "order": 2,
+          "path": "track-5-performance/02-load-types-scenarios.md"
+        },
+        {
+          "id": "t5-l03",
+          "title": "임계치 설정과 결과 해석 — p95·p99·에러율·처리량",
+          "summary": "평균이 왜 거짓말하는지, p99가 왜 중요한지. 숫자를 보고 병목을 판단하고 합격 기준을 코드로 박는다.",
+          "minutes": 20,
+          "tags": [
+            "threshold",
+            "p95",
+            "p99",
+            "백분위",
+            "에러율",
+            "처리량"
+          ],
+          "order": 3,
+          "path": "track-5-performance/03-thresholds-interpretation.md"
+        },
+        {
+          "id": "t5-l04",
+          "title": "성능 테스트를 CI에 붙이고 회귀를 감지하기",
+          "summary": "릴리즈 직전 한 번 돌리는 성능 테스트는 늦다. 매일 자동으로 돌려 변화를 잡아내는 체계를 만든다.",
+          "minutes": 20,
+          "tags": [
+            "k6",
+            "CI",
+            "성능회귀",
+            "GitHubActions",
+            "리포팅"
+          ],
+          "order": 4,
+          "path": "track-5-performance/04-performance-in-ci.md"
+        }
+      ]
     },
     {
       "id": "track-6-dev-crosscheck",
