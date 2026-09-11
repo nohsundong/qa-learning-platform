@@ -74,7 +74,7 @@
 
     html += '<div class="page-head">' +
       '<h1>대시보드</h1>' +
-      '<p class="sub">2026년 QA 채용시장이 요구하는 역량을 6개 트랙 ' + s.total + '개 레슨으로 학습합니다.</p>' +
+      '<p class="sub">2026년 QA 채용시장이 요구하는 역량을 ' + QALab.content.getTracks().length + '개 트랙 ' + s.total + '개 레슨으로 학습합니다.</p>' +
       '</div>';
 
     /* 통계 타일 */

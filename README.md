@@ -1,13 +1,13 @@
 # 🧪 QA-Lab — QA 엔지니어 자기개발 학습 플랫폼
 
-2026년 QA 채용시장이 요구하는 역량을 **47개 레슨**과 **4개 실습 랩**으로 학습하는 개인용 웹 플랫폼입니다.
+2026년 QA 채용시장이 요구하는 역량을 **54개 레슨**과 **4개 실습 랩**으로 학습하는 개인용 웹 플랫폼입니다.
 
 **서버 없음 · 데이터베이스 없음 · 빌드 도구 없음 · 비용 0원.**
 `index.html` 을 더블클릭하면 바로 열립니다.
 
 ```
-📚 6개 트랙 · 47 레슨 · 약 16시간 분량
-✅ 자가 체크리스트 529항목
+📚 7개 트랙 · 54 레슨 · 약 18시간 분량
+✅ 자가 체크리스트 781항목
 🔬 실습 랩 4종 (결함 심은 샘플 앱 / 셀렉터 연습기 / 스크립트 리뷰어 / 셀프힐링 시뮬레이터)
 📧 평일 아침 학습 브리핑 메일 (GitHub Actions)
 🤖 AI 기능은 BYOK — 키가 없어도 콘텐츠와 실습 랩은 100% 동작
@@ -119,8 +119,8 @@ https://<사용자명>.github.io/qa-learning-platform/
 1. 오늘 학습할 레슨 1개 (진도 기준 추천)
 2. 어제까지의 진도율 · 연속 학습일 · 트랙별 진도
 3. 복습해야 할 약점 항목 3개
-4. 오늘의 QA 지식 한 조각 (96개 풀에서 순환)
-5. 오늘의 실습 미션 1개 (60개 풀에서 순환, 10~20분)
+4. 오늘의 QA 지식 한 조각 (112개 풀에서 순환)
+5. 오늘의 실습 미션 1개 (71개 풀에서 순환, 10~20분)
 ```
 
 ### 3-1. Gmail 앱 비밀번호 발급
@@ -258,7 +258,7 @@ GitHub 웹에서 바로 편집해도 됩니다.
 ```json
 {
   "generatedAt": "2026-08-15T08:30:00.000Z",
-  "totalLessons": 47,
+  "totalLessons": 54,
   "completedCount": 11,
   "percent": 23,
   "streak": { "current": 6, "longest": 9, "lastStudyDate": "2026-08-14" },
@@ -282,7 +282,7 @@ GitHub 웹에서 바로 편집해도 됩니다.
 
 ## 5. AI 기능 설정 (BYOK)
 
-**AI 기능은 선택 사항입니다.** 키가 없어도 47개 레슨과 4개 실습 랩은 100% 동작합니다.
+**AI 기능은 선택 사항입니다.** 키가 없어도 54개 레슨과 4개 실습 랩은 100% 동작합니다.
 
 ### 설정 방법
 
@@ -373,9 +373,9 @@ node tools/build-content.mjs
 
 ```json
 {
-  "id": "track-7-security",
-  "title": "트랙 7. 보안 테스트",
-  "shortTitle": "7. 보안",
+  "id": "track-8-security",
+  "title": "트랙 8. 보안 테스트",
+  "shortTitle": "8. 보안",
   "summary": "한 줄 설명",
   "outcomes": ["이 트랙을 마치면 할 수 있는 것"]
 }
@@ -403,7 +403,7 @@ open out/briefing.html
 
 ## 7. 커리큘럼
 
-총 **47레슨 · 944분(약 16시간) · 자가 체크리스트 529항목**
+총 **54레슨 · 1,090분(약 18시간) · 자가 체크리스트 781항목**
 
 <details>
 <summary><strong>트랙 1. QA 기본기</strong> (8편) — 채용공고 공통 요구사항</summary>
@@ -494,6 +494,20 @@ open out/briefing.html
 | 09 | 교차검증 실전 워크플로 — 전체 트랙 종합 | 22분 |
 </details>
 
+<details>
+<summary><strong>트랙 7. 비즈니스 이해 — CXO 역할과 QA</strong> (7편) — 결함을 경영진의 언어로 ⭐</summary>
+
+| # | 레슨 | 시간 |
+|---|---|---|
+| 01 | CXO 지도 — C레벨 직함과 조직 구조 읽는 법 | 18분 |
+| 02 | CEO와 해외 법인장 — 최종 결정권자와 CEO Japan | 20분 |
+| 03 | CSO와 CFO — 전략과 돈의 언어로 품질을 말하기 | 22분 |
+| 04 | CISO·CIO·CDO — 보안, 사내 IT, 디지털 전환 | 22분 |
+| 05 | CRO·CMO·CCO — 매출, 마케팅, 고객 여정과 성장 | 22분 |
+| 06 | COO·CHRO 그리고 새로 떠오른 C레벨 — CTO·CPO·CAIO·CQO | 20분 |
+| 07 | **C레벨에게 품질을 보고하는 법** — 하나의 이슈를 역할별 언어로 번역하기 | 22분 |
+</details>
+
 ### 실습 랩
 
 | 랩 | 내용 |
@@ -530,14 +544,14 @@ qa-learning-platform/
 ├── content/
 │   ├── tracks.json               트랙 메타데이터 (직접 편집)
 │   ├── track-1-fundamentals/     레슨 .md (직접 편집)
-│   ├── ... track-6-dev-crosscheck/
+│   ├── ... track-7-business-cxo/
 │   ├── manifest.json             ⚙️ 자동 생성
 │   └── lessons.bundle.js         ⚙️ 자동 생성 (file:// 대응)
 │
 ├── data/
 │   ├── progress-snapshot.json    메일용 진도 요약 (수동 동기화)
-│   ├── knowledge-bites.json      오늘의 QA 지식 96개
-│   └── missions.json             오늘의 실습 미션 60개
+│   ├── knowledge-bites.json      오늘의 QA 지식 112개
+│   └── missions.json             오늘의 실습 미션 71개
 │
 ├── tools/
 │   ├── build-content.mjs         .md → manifest + bundle

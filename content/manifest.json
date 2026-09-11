@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-08-15T10:14:03.657Z",
+  "generatedAt": "2026-09-11T11:18:41.270Z",
   "tracks": [
     {
       "id": "track-1-fundamentals",
@@ -775,6 +775,137 @@
           ],
           "order": 9,
           "path": "track-6-dev-crosscheck/09-crosscheck-workflow.md"
+        }
+      ]
+    },
+    {
+      "id": "track-7-business-cxo",
+      "title": "트랙 7. 비즈니스 이해 — CXO 역할과 QA",
+      "shortTitle": "7. CXO 이해",
+      "summary": "CEO부터 CISO·CRO·CCO까지 C레벨이 각자 무엇을 책임지고 어떤 숫자로 평가받는지 이해하고, 품질 이슈를 각 임원의 언어로 번역해 결정을 끌어낸다.",
+      "outcomes": [
+        "주요 CXO의 역할과 핵심 지표를 알고, 결함이 누구의 숫자를 건드리는지 판단할 수 있다",
+        "품질 비용·자동화 ROI·결함의 매출 영향을 가정과 범위를 갖춘 숫자로 제시할 수 있다",
+        "보안·개인정보 이슈를 CISO·개인정보 보호책임자 경로로 즉시 보고할 수 있다",
+        "하나의 품질 이슈를 역할별로 번역한 1장 보고서로 경영진의 결정을 이끌어낼 수 있다"
+      ],
+      "lessons": [
+        {
+          "id": "t7-l01",
+          "title": "CXO 지도 — C레벨 직함과 조직 구조 읽는 법",
+          "summary": "주요 C레벨 역할을 한 장으로 정리하고, 같은 약어가 회사마다 다른 뜻인 함정과 품질 이슈의 결정권자를 찾는 법을 익힌다.",
+          "minutes": 18,
+          "tags": [
+            "CXO",
+            "C레벨",
+            "조직구조",
+            "의사결정",
+            "비즈니스이해"
+          ],
+          "order": 1,
+          "path": "track-7-business-cxo/01-cxo-map.md"
+        },
+        {
+          "id": "t7-l02",
+          "title": "CEO와 해외 법인장 — 최종 결정권자와 CEO Japan",
+          "summary": "CEO가 무엇을 기준으로 결정하는지, 글로벌 기업의 지역 법인장(CEO Japan)이 본사와 현지 사이에서 무엇을 책임지는지 이해하고 일본 출시 품질 포인트를 정리한다.",
+          "minutes": 20,
+          "tags": [
+            "CEO",
+            "CEO Japan",
+            "법인장",
+            "매트릭스조직",
+            "현지화",
+            "일본시장"
+          ],
+          "order": 2,
+          "path": "track-7-business-cxo/02-ceo-and-ceo-japan.md"
+        },
+        {
+          "id": "t7-l03",
+          "title": "CSO와 CFO — 전략과 돈의 언어로 품질을 말하기",
+          "summary": "전략책임자가 보는 성장 로드맵과 재무책임자가 보는 예산·ROI를 이해하고, 품질 비용(COQ)과 자동화 ROI를 숫자로 제안하는 법을 익힌다.",
+          "minutes": 22,
+          "tags": [
+            "CSO",
+            "CFO",
+            "전략",
+            "예산",
+            "ROI",
+            "품질비용",
+            "COQ"
+          ],
+          "order": 3,
+          "path": "track-7-business-cxo/03-cso-cfo.md"
+        },
+        {
+          "id": "t7-l04",
+          "title": "CISO·CIO·CDO — 보안, 사내 IT, 디지털 전환",
+          "summary": "정보보호최고책임자·최고정보책임자·최고디지털책임자의 책임 범위와 한국 법상 CISO·개인정보 보호책임자 지정 의무를 이해하고, 보안 결함 보고와 테스트 데이터 관리를 실무 절차로 익힌다.",
+          "minutes": 22,
+          "tags": [
+            "CISO",
+            "CIO",
+            "CDO",
+            "정보보호",
+            "개인정보",
+            "ISMS-P",
+            "디지털전환",
+            "데이터품질"
+          ],
+          "order": 4,
+          "path": "track-7-business-cxo/04-ciso-cio-cdo.md"
+        },
+        {
+          "id": "t7-l05",
+          "title": "CRO·CMO·CCO — 매출, 마케팅, 고객 여정과 성장",
+          "summary": "매출과 고객을 책임지는 세 임원이 고객 여정의 어느 구간을 보는지 구분하고, 결함을 여정 단계와 매출 영향으로 환산해 보고한다.",
+          "minutes": 22,
+          "tags": [
+            "CRO",
+            "CMO",
+            "CCO",
+            "고객여정",
+            "퍼널",
+            "리텐션",
+            "NPS",
+            "그로스"
+          ],
+          "order": 5,
+          "path": "track-7-business-cxo/05-cro-cmo-cco.md"
+        },
+        {
+          "id": "t7-l06",
+          "title": "COO·CHRO 그리고 새로 떠오른 C레벨 — CTO·CPO·CAIO·CQO",
+          "summary": "운영과 인사를 책임지는 임원이 QA에게 기대하는 것을 이해하고, 기술·제품·AI·품질 책임자까지 QA가 실무에서 만나는 C레벨 지도를 완성한다.",
+          "minutes": 20,
+          "tags": [
+            "COO",
+            "CHRO",
+            "CTO",
+            "CPO",
+            "CAIO",
+            "CQO",
+            "AI기본법",
+            "SLO"
+          ],
+          "order": 6,
+          "path": "track-7-business-cxo/06-coo-chro-new-clevels.md"
+        },
+        {
+          "id": "t7-l07",
+          "title": "C레벨에게 품질을 보고하는 법 — 하나의 이슈를 역할별 언어로 번역하기",
+          "summary": "출시 직전 발견된 결함들을 CEO·CEO Japan·CISO·CFO·CRO·CCO 등 역할별 관심사로 번역하고, 결정을 끌어내는 1장 보고서를 완성한다. 트랙 7 종합 실습.",
+          "minutes": 22,
+          "tags": [
+            "경영진보고",
+            "커뮤니케이션",
+            "에스컬레이션",
+            "의사결정",
+            "종합실습"
+          ],
+          "order": 7,
+          "path": "track-7-business-cxo/07-reporting-to-clevel.md"
         }
       ]
     }

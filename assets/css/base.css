@@ -36,6 +36,7 @@
   --track-4: #b3452c;
   --track-5: #8a5300;
   --track-6: #14713c;
+  --track-7: #a3245f;
 
   /* 치수 */
   --sidebar-w: 268px;
@@ -88,6 +89,7 @@ html[data-theme="dark"] {
   --track-4: #ff9478;
   --track-5: #e5b45c;
   --track-6: #57d38c;
+  --track-7: #f28dbd;
 
   --shadow-1: 0 1px 2px rgba(0,0,0,.4);
   --shadow-2: 0 4px 12px rgba(0,0,0,.45);
@@ -128,6 +130,7 @@ html[data-theme="dark"] {
     --track-4: #ff9478;
     --track-5: #e5b45c;
     --track-6: #57d38c;
+    --track-7: #f28dbd;
 
     --shadow-1: 0 1px 2px rgba(0,0,0,.4);
     --shadow-2: 0 4px 12px rgba(0,0,0,.45);
