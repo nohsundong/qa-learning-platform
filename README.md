@@ -1,14 +1,14 @@
 # 🧪 QA-Lab — QA 엔지니어 자기개발 학습 플랫폼
 
-2026년 QA 채용시장이 요구하는 역량을 **54개 레슨**과 **4개 실습 랩**으로 학습하는 개인용 웹 플랫폼입니다.
+2026년 QA 채용시장이 요구하는 역량을 **62개 레슨**과 **5개 실습 랩**으로 학습하는 개인용 웹 플랫폼입니다.
 
 **서버 없음 · 데이터베이스 없음 · 빌드 도구 없음 · 비용 0원.**
 `index.html` 을 더블클릭하면 바로 열립니다.
 
 ```
-📚 7개 트랙 · 54 레슨 · 약 18시간 분량
-✅ 자가 체크리스트 781항목
-🔬 실습 랩 4종 (결함 심은 샘플 앱 / 셀렉터 연습기 / 스크립트 리뷰어 / 셀프힐링 시뮬레이터)
+📚 8개 트랙 · 62 레슨 · 약 21시간 분량
+✅ 자가 체크리스트 883항목
+🔬 실습 랩 5종 (결함 심은 샘플 앱 / 셀렉터 연습기 / 스크립트 리뷰어 / 셀프힐링 시뮬레이터 / 에이전틱 운영 판단 훈련)
 📧 평일 아침 학습 브리핑 메일 (GitHub Actions)
 🤖 AI 기능은 BYOK — 키가 없어도 콘텐츠와 실습 랩은 100% 동작
 ```
@@ -119,8 +119,8 @@ https://<사용자명>.github.io/qa-learning-platform/
 1. 오늘 학습할 레슨 1개 (진도 기준 추천)
 2. 어제까지의 진도율 · 연속 학습일 · 트랙별 진도
 3. 복습해야 할 약점 항목 3개
-4. 오늘의 QA 지식 한 조각 (112개 풀에서 순환)
-5. 오늘의 실습 미션 1개 (71개 풀에서 순환, 10~20분)
+4. 오늘의 QA 지식 한 조각 (136개 풀에서 순환)
+5. 오늘의 실습 미션 1개 (82개 풀에서 순환, 10~20분)
 ```
 
 ### 3-1. Gmail 앱 비밀번호 발급
@@ -258,7 +258,7 @@ GitHub 웹에서 바로 편집해도 됩니다.
 ```json
 {
   "generatedAt": "2026-08-15T08:30:00.000Z",
-  "totalLessons": 54,
+  "totalLessons": 62,
   "completedCount": 11,
   "percent": 23,
   "streak": { "current": 6, "longest": 9, "lastStudyDate": "2026-08-14" },
@@ -282,7 +282,7 @@ GitHub 웹에서 바로 편집해도 됩니다.
 
 ## 5. AI 기능 설정 (BYOK)
 
-**AI 기능은 선택 사항입니다.** 키가 없어도 54개 레슨과 4개 실습 랩은 100% 동작합니다.
+**AI 기능은 선택 사항입니다.** 키가 없어도 62개 레슨과 5개 실습 랩은 100% 동작합니다.
 
 ### 설정 방법
 
@@ -373,9 +373,9 @@ node tools/build-content.mjs
 
 ```json
 {
-  "id": "track-8-security",
-  "title": "트랙 8. 보안 테스트",
-  "shortTitle": "8. 보안",
+  "id": "track-9-security",
+  "title": "트랙 9. 보안 테스트",
+  "shortTitle": "9. 보안",
   "summary": "한 줄 설명",
   "outcomes": ["이 트랙을 마치면 할 수 있는 것"]
 }
@@ -403,7 +403,7 @@ open out/briefing.html
 
 ## 7. 커리큘럼
 
-총 **54레슨 · 1,090분(약 18시간) · 자가 체크리스트 781항목**
+총 **62레슨 · 1,262분(약 21시간) · 자가 체크리스트 883항목**
 
 <details>
 <summary><strong>트랙 1. QA 기본기</strong> (8편) — 채용공고 공통 요구사항</summary>
@@ -508,6 +508,24 @@ open out/briefing.html
 | 07 | **C레벨에게 품질을 보고하는 법** — 하나의 이슈를 역할별 언어로 번역하기 | 22분 |
 </details>
 
+<details>
+<summary><strong>트랙 8. 엔터프라이즈 에이전틱 테스팅 — 플랫폼과 운영 모델</strong> (8편) — 테스트 클라우드·오케스트레이션·거버넌스 ⭐ NEW</summary>
+
+UiPath Test Cloud 웨비나(2026-09)를 출발점으로, 공개 문서·보도자료·조사 보고서(DORA 2025, Faros AI 2026, Gartner·Forrester, ISO/IEC TS 42119-2, ISTQB CT-GenAI)로 확인·보강했다.
+본문에서 **웨비나 주장**과 **확인된 사실**을 구분해 표시하고, 같은 원리를 Playwright Test Agents·GitHub Actions 로 무료 재현한다.
+
+| # | 레슨 | 시간 |
+|---|---|---|
+| 01 | AI 가속의 역설 — 테스트가 병목이 된 이유와 측정법 (리드타임 분해·암달의 법칙) | 20분 |
+| 02 | 에이전틱 테스트 플랫폼 해부 — 라이프사이클 4단계 × 유스케이스 지도 | 22분 |
+| 03 | 커스텀 테스트 에이전트 설계 — 로우코드와 프로코드 (스펙 카드·평가셋) | 22분 |
+| 04 | **에이전트 오케스트레이션** — 사람·로봇·에이전트를 하나의 테스트 파이프라인으로 | 22분 |
+| 05 | 자동화 → 증강 → 자율 — 실행 모드를 테스트마다 고르는 법 | 20분 |
+| 06 | 자율 탐색 테스팅 운영 — 요구사항 기반 미션, 타임박스, 발견의 자산화 | 22분 |
+| 07 | **거버넌스와 신뢰** — 가드레일·감사·데이터 주권·온프레미스 | 22분 |
+| 08 | **도입 로드맵과 벤더 평가** — 주장을 검증하고 다크 테스팅 팩토리로 가는 길 | 22분 |
+</details>
+
 ### 실습 랩
 
 | 랩 | 내용 |
@@ -516,6 +534,7 @@ open out/briefing.html
 | 🎯 **셀렉터 연습기** | 요소 클릭 시 후보 셀렉터 7종과 안정성 등급. **배포 전/후 DOM 전환**으로 무엇이 깨지는지 실증 |
 | 🔍 **Playwright 스크립트 리뷰어** | 규칙 **23개** 정적 검사. API 키 불필요, 코드가 브라우저 밖으로 나가지 않음 |
 | 🩹 **셀프힐링 시뮬레이터** | 시나리오 5개 중 **3개는 "치유하면 안 되는 경우"**. 판단력 훈련 |
+| 🧭 **에이전틱 테스트 운영 판단 훈련** | 상황 **8개** — 실행 모드 선택, 사양 질문, 기대값 수정 PR 승인, 프롬프트 인젝션, 12배 주장 검증, 사내망 LLM, 에이전트 평가 |
 
 ### 학습 관리
 
@@ -538,20 +557,20 @@ qa-learning-platform/
 ├── js/
 │   ├── util.js  store.js  content.js  markdown.js  router.js  app.js
 │   ├── ui/       nav · dashboard · lesson · review · settings · lab
-│   ├── lab/      buggy-app · selector-trainer · script-reviewer · self-healing-sim
+│   ├── lab/      buggy-app · selector-trainer · script-reviewer · self-healing-sim · agentic-ops
 │   └── ai/       providers(BYOK 9종) · prompts · ai-panel
 │
 ├── content/
 │   ├── tracks.json               트랙 메타데이터 (직접 편집)
 │   ├── track-1-fundamentals/     레슨 .md (직접 편집)
-│   ├── ... track-7-business-cxo/
+│   ├── ... track-8-agentic-platform/
 │   ├── manifest.json             ⚙️ 자동 생성
 │   └── lessons.bundle.js         ⚙️ 자동 생성 (file:// 대응)
 │
 ├── data/
 │   ├── progress-snapshot.json    메일용 진도 요약 (수동 동기화)
-│   ├── knowledge-bites.json      오늘의 QA 지식 112개
-│   └── missions.json             오늘의 실습 미션 71개
+│   ├── knowledge-bites.json      오늘의 QA 지식 136개
+│   └── missions.json             오늘의 실습 미션 82개
 │
 ├── tools/
 │   ├── build-content.mjs         .md → manifest + bundle
